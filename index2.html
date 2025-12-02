@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="shortcut icon" href="logo.html/logo.png.jpg" type="image/x-icon">
+<title>Employment Contract</title>
+<link rel="stylesheet" href="logo.html/logo.png.jpg">
+<link rel="stylesheet" href="index.java">
+<style>
+  :root{--bg:#000;--panel:#111;--muted:#888;--accent:#c33}
+  body{background:var(--bg);color:#fff;font-family:Arial,Helvetica,sans-serif;margin:24px}
+  .container{max-width:940px;margin:0 auto;background:var(--panel);padding:28px;border-radius:10px;box-shadow:0 0 25px rgba(255,255,255,0.06)}
+  .logo{display:block;margin:0 auto 18px auto;width:160px;height:auto}
+  h1{text-align:center;margin:8px 0 20px 0}
+  .fill-section{background:#1b1b1b;padding:18px;border-radius:8px}
+  label{display:block;margin-top:10px;font-weight:700}
+  input[type="date"], input[type="text"], input[type="number"]{display:block;padding:8px;border-radius:6px;border:none;width:260px;margin-top:6px;background:#fff;color:#000}
+  button{margin-top:16px;padding:10px 16px;border-radius:6px;border:none;background:#333;color:#fff;cursor:pointer}
+  button:hover{background:#555}
+  .contract{margin-top:20px;padding:18px;background:#121212;border-radius:8px}
+  .contract p{margin:8px 0}
+  .contract .muted{color:var(--muted)}
+  .signature-section{margin-top:18px;padding-top:12px;border-top:1px solid #333}
+  .stamp-container{position:relative}
+  .stamp{position:absolute;left:calc(50% - 80px);top:-22px;width:160px;opacity:0.18;pointer-events:none}
+  #resultsBox{display:none;margin-top:16px;padding:12px;background:#1b1b1b;border-radius:6px;white-space:pre-wrap}
+  #copyBtn{display:none;margin-top:10px}
+  /* Responsive */
+  @media (max-width:600px){
+    input[type="date"], input[type="text"], input[type="number"]{width:100%}
+    .stamp{left:calc(50% - 60px);width:120px}
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <!-- Put your logo file in same folder and name it logo.png -->
+    <img src="logo.html/logo.png.jpg" alt="Company Logo" class="logo">
+
+    <h1>Employment Contract</h1>
+
+    <div class="fill-section" aria-label="Fill contract form">
+      <label>Employee (Party B) Name:</label>
+      <input id="empName" type="text" placeholder="Enter employee name">
+
+      <label>Employee Position:</label>
+      <input id="empPosition" type="text" placeholder="Enter position">
+
+      <label>Employee Monthly Salary (USD):</label>
+      <input id="empSalary" type="text" placeholder="Enter salary">
+
+      <label>Contract Start Date:</label>
+      <input id="startDate" type="date">
+
+      <label>Contract End Date:</label>
+      <input id="endDate" type="date">
+
+      <label>Employer Signature Date:</label>
+      <input id="empDateA" type="date">
+
+      <label>Employee Signature Date:</label>
+      <input id="empDateB" type="date">
+
+      <button id="fillBtn">Fill Into Contract</button>
+    </div>
+
+    <!-- Live contract -->
+    <div class="contract" id="contractArea" aria-live="polite">
+      <p><b>Employer (Party A):</b> Schroder Quantitative Technology Co., Ltd.</p>
+      <p><b>Employee (Party B):</b> <span id="outName" class="muted">________________________________________</span></p>
+      <p><b>Position:</b> <span id="outPosition" class="muted">____________________________________________</span></p>
+      <p><b>Contract Term:</b> From <span id="outStart">____ / ____ / ______</span> to <span id="outEnd">____ / ____ / ______</span></p>
+
+      <h2>1. Job Responsibilities</h2>
+      <ol>
+        <li>Promoting the company’s products, services, or brand through approved channels.</li>
+        <li>Inviting and attracting new users, clients, or partners to join or engage with the company.</li>
+        <li>Participating in marketing campaigns, outreach activities, and communication tasks arranged by Party A.</li>
+        <li>Providing timely updates, reports, and feedback regarding promotional progress.</li>
+        <li>Following all instructions, guidelines, and policies provided by Party A regarding promotional work.</li>
+      </ol>
+
+      <h2>2. Working Hours and Attendance</h2>
+      <ol>
+        <li>Working hours shall follow the standards established by Party A, subject to local labor regulations.</li>
+        <li>Party B shall ensure timely attendance and completion of assigned duties.</li>
+        <li>Adjustments to working hours may be arranged with mutual agreement.</li>
+      </ol>
+
+      <h2>3. Compensation</h2>
+      <ol>
+        <li>Monthly Salary: USD <span id="outSalary" class="muted">___________</span></li>
+        <li>Salary will be paid monthly to the bank account designated by Party B.</li>
+        <li>Any bonuses, commissions, or allowances (if applicable) will be based on Party A’s policies.</li>
+      </ol>
+
+      <h2>4. Conduct and Professional Standards</h2>
+      <ol>
+        <li>Act professionally and respectfully toward colleagues, clients, and partners.</li>
+        <li>Follow Party A’s workplace rules, communication guidelines, and promotional standards.</li>
+        <li>Avoid any behavior that may damage Party A’s reputation, brand image, or customer relations.</li>
+        <li>Use only approved promotional materials and follow correct representation of the company.</li>
+      </ol>
+
+      <h2>5. Use of Company Resources</h2>
+      <ol>
+        <li>Use them responsibly for work purposes only.</li>
+        <li>Not misuse or damage any company property.</li>
+        <li>Return all materials upon contract termination.</li>
+      </ol>
+
+      <h2>6. Contract Termination</h2>
+      <p>Party A may terminate the Contract if Party B fails to perform job duties, violates rules, engages in misconduct, or for other reasons permitted by law.</p>
+      <p>Party B may resign by providing written notice <span id="outNotice" class="muted">____</span> days in advance.</p>
+
+      <h2>7. Dispute Resolution</h2>
+      <p>Any disputes arising from this Contract shall first be resolved through friendly negotiation. If negotiation fails, the dispute shall be handled according to the laws and regulations of the location where the Contract is executed.</p>
+
+      <h2>8. Other Provisions</h2>
+      <ol>
+        <li>This Contract becomes effective upon signature by both parties.</li>
+        <li>Any amendments must be made in written form and agreed by both parties.</li>
+      </ol>
+
+      <!-- stamp container and signatures -->
+      <div class="signature-section">
+        <div class="stamp-container">
+          <!-- stamp image (place file named "stamp.png" in same folder) -->
+          <img src="stamp.png" alt="Seal" class="stamp" id="stampImage">
+          <p><b>Employer (Party A) Signature:</b> ____________________________</p>
+          <p>Date: <span id="outDateA">____ / ____ / ______</span></p>
+        </div>
+
+        <div class="stamp-container">
+          <img src="stamp.png" alt="Seal" class="stamp" id="stampImage2">
+          <p><b>Employee (Party B) Signature:</b> <span id="outSigName">______________________________</span></p>
+          <p>Date: <span id="outDateB">____ / ____ / ______</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div id="resultsBox" aria-hidden="true"></div>
+    <button id="copyBtn" style="display:none">Copy Completed Contract</button>
+  </div>
+
+<script>
+/* Helper: convert yyyy-mm-dd -> dd / mm / yyyy */
+function formatForContract(iso) {
+  if (!iso) return "____ / ____ / ______";
+  const p = iso.split("-");
+  if (p.length !== 3) return iso;
+  return `${p[2]} / ${p[1]} / ${p[0]}`;
+}
+
+/* Main fill function */
+document.getElementById("fillBtn").addEventListener("click", function () {
+  // read inputs (IDs must match exactly)
+  const name = document.getElementById("empName").value.trim();
+  const position = document.getElementById("empPosition").value.trim();
+  const salary = document.getElementById("empSalary").value.trim();
+  const start = document.getElementById("startDate").value;
+  const end = document.getElementById("endDate").value;
+  const dateA = document.getElementById("empDateA").value;
+  const dateB = document.getElementById("empDateB").value;
+
+  // write into contract
+  document.getElementById("outName").innerText = name || "________________________________________";
+  document.getElementById("outSigName").innerText = name || "______________________________";
+  document.getElementById("outPosition").innerText = position || "____________________________________________";
+  document.getElementById("outSalary").innerText = salary || "___________";
+
+  document.getElementById("outStart").innerText = formatForContract(start);
+  document.getElementById("outEnd").innerText = formatForContract(end);
+
+  document.getElementById("outDateA").innerText = formatForContract(dateA);
+  document.getElementById("outDateB").innerText = formatForContract(dateB);
+
+  // results box (copyable)
+  const resultsBox = document.getElementById("resultsBox");
+  resultsBox.style.display = "block";
+  resultsBox.innerText =
+`Employment Contract
+
+Employer (Party A): Schroder Quantitative Technology Co., Ltd.
+Employee (Party B): ${name || "N/A"}
+Position: ${position || "N/A"}
+Monthly Salary: USD ${salary || "N/A"}
+Term: ${formatForContract(start)} to ${formatForContract(end)}
+Employer Signature Date: ${formatForContract(dateA)}
+Employee Signature Date: ${formatForContract(dateB)}`;
+
+  // show copy button and attach handler if not attached
+  const copyBtn = document.getElementById("copyBtn");
+  copyBtn.style.display = "inline-block";
+  copyBtn.onclick = function () {
+    navigator.clipboard.writeText(resultsBox.innerText).then(function(){
+      alert("Contract copied to clipboard.");
+    }, function(err){
+      alert("Copy failed: " + err);
+    });
+  };
+
+  // WhatsApp notify (opens chat with prefilled text)
+  const waMsg =
+`Contract filled:
+Name: ${name}
+Position: ${position}
+Salary: USD ${salary}
+Start: ${formatForContract(start)}
+End: ${formatForContract(end)}
+Employer Date: ${formatForContract(dateA)}
+Employee Date: ${formatForContract(dateB)}`;
+  window.open("https://wa.me/447518001664?text=" + encodeURIComponent(waMsg), "_blank");
+});
+</script>
+</body>
+</html>
