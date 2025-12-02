@@ -2,7 +2,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="shortcut icon" href="logo.png.jpg" type="image/x-icon">
+<link rel="shortcut icon" href="[logo.png.jpg](https://github.com/qqingdao55-cmd/Schroders.top/blob/b37276b654c72dec209c7fe340337f443d91740b/logo.png.jpg)" type="image/x-icon">
 <title>Employment Contract</title>
 <link rel="stylesheet" href="logo.html/logo.png.jpg">
 <link rel="stylesheet" href="index.java">
@@ -35,7 +35,7 @@
 <body>
   <div class="container">
     <!-- Put your logo file in same folder and name it logo.png -->
-    <img src="logo.png.jpg" alt="Company Logo" class="logo">
+    <img src="[logo.png.jpg](https://github.com/qqingdao55-cmd/Schroders.top/blob/b37276b654c72dec209c7fe340337f443d91740b/logo.png.jpg)" alt="Company Logo" class="logo">
 
     <h1>Employment Contract</h1>
 
